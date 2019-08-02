@@ -1,6 +1,5 @@
 package com.example.lancavalores.banco;
 
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -11,9 +10,9 @@ public class MainDB extends SQLiteOpenHelper {
 
 
 
-    private MainDB instancia;
+    private static MainDB instancia;
 
-    public MainDB getInstancia(){
+    public static MainDB getInstancia(){
         if (instancia == null) instancia = new MainDB();
         return instancia;
     }
