@@ -12,14 +12,14 @@ import com.example.lancavalores.entidade.Deposito;
 import java.util.ArrayList;
 import java.util.List;
 
-public class valoresRepositorio {
+public class DepositoRepositorio {
 
     public boolean cadastrar(Deposito deposito) {
         try {
             SQLiteDatabase db = MainDB.getInstancia().getWritableDatabase();
             ContentValues cv = new ContentValues();
             cv.put(DepositoConstantes.VALOR, deposito.getValor());
-            cv.put(DepositoConstantes.VALOR, deposito.getDt_deposito());
+            cv.put(DepositoConstantes.DT_DEPOSITO, deposito.getDt_deposito());
             db.insert(MainDB.TABELA, null, cv);
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,7 +32,7 @@ public class valoresRepositorio {
         List<Deposito> depositos = new ArrayList<>();
         try {
             SQLiteDatabase db = MainDB.getInstancia().getReadableDatabase();
-            String query = "select * from " + MainDB.TABELA;
+            String query = "select * from " + MainDB.TABELA + " ORDER BY ID DESC";
             Cursor cursor = db.rawQuery(query, null);
 
             if (cursor.moveToFirst()) {
@@ -100,7 +100,7 @@ public class valoresRepositorio {
                 deposito.setDt_deposito(c.getString(2));
             }
 
-            if (c != null){
+            if (c != null) {
                 c.close();
             }
 

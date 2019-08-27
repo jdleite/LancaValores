@@ -36,6 +36,5 @@ public class MainDB extends SQLiteOpenHelper {
     public synchronized void close() {
         super.close();
 
-        instancia = null;
     }
 }

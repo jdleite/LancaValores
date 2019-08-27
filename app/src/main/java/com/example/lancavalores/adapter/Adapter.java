@@ -36,7 +36,7 @@ public class Adapter extends RecyclerView.Adapter<DepositoViewHolder> {
 
         View view = inflater.inflate(R.layout.depositro_row, parent, false);
 
-        return new DepositoViewHolder(view);
+        return new DepositoViewHolder(view,context);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Adapter extends RecyclerView.Adapter<DepositoViewHolder> {
 
         Deposito deposito = mDepositos.get(position);
 
-        holder.bindData(deposito);
+        holder.bindData(deposito,listener);
 
 
     }
