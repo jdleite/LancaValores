@@ -10,6 +10,7 @@ import com.example.lancavalores.banco.MyApp;
 import com.example.lancavalores.entidade.Deposito;
 import com.example.lancavalores.listener.DepositoInterface;
 import com.example.lancavalores.repositorio.DepositoRepositorio;
+import com.example.lancavalores.viewHolder.DepositoViewHolder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Atua
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().hide();
         CreateDatabase c = new CreateDatabase();
         c.criar();
 
@@ -57,43 +59,29 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Atua
             @Override
             public void onClick(View view) {
                 onStateNotSaved();
-                CustomDialog dialog = new CustomDialog();
-                dialog.show(getSupportFragmentManager(), "Dialog");
+                chamarInputDilog();
 
 
             }
         });
 
+        depositoInterface = new DepositoInterface() {
+            @Override
+            public void onListClick(int id) {
+                if (DepositoViewHolder.point == 1) {
+                    chamarInputDilog();
+                }
+            }
 
+            @Override
+            public void onDeleteClick(int id) {
+
+            }
+        };
 
 
     }
 
-
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     public void carregarDeposito() {
         List<Deposito> depositos = new ArrayList<>();
@@ -127,7 +115,10 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Atua
         carregarDeposito();
     }
 
-
+    private void chamarInputDilog() {
+        CustomDialog dialog = new CustomDialog();
+        dialog.show(getSupportFragmentManager(), "Dialog");
+    }
 
 
 }

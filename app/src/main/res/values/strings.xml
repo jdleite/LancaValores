@@ -7,4 +7,8 @@
     <string name="digite_o_valor">Digite o valor</string>
     <string name="entre_com_o_valor">Entre com o Valor</string>
     <string name="cancelar">Cancelar</string>
+    <string name="remocao_valor">Deseja Remover o Valor ?</string>
+    <string name="remocao_titulo">Remoção de Valor</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
 </resources>
