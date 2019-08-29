@@ -91,7 +91,7 @@ public class DepositoRepositorio {
         Deposito deposito = new Deposito();
         try {
             SQLiteDatabase db = MainDB.getInstancia().getReadableDatabase();
-            String query = "select * from " + MainDB.TABELA + "where id =" + id + "";
+            String query = "SELECT * FROM " + MainDB.TABELA + " WHERE ID = '" + id + "'";
             Cursor c = db.rawQuery(query, null);
 
             if (c.moveToFirst()) {

@@ -1,40 +1,33 @@
 package com.example.lancavalores.views;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lancavalores.R;
 import com.example.lancavalores.adapter.Adapter;
 import com.example.lancavalores.banco.CreateDatabase;
-import com.example.lancavalores.banco.MyApp;
 import com.example.lancavalores.entidade.Deposito;
 import com.example.lancavalores.listener.DepositoInterface;
 import com.example.lancavalores.repositorio.DepositoRepositorio;
 import com.example.lancavalores.viewHolder.DepositoViewHolder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements CustomDialog.AtualizaListener {
 
     private ViewHoler viewHoler = new ViewHoler();
     public DepositoInterface depositoInterface;
+    public static int ID_GLOBAL = 0;
+    private DepositoRepositorio repositorio = new DepositoRepositorio();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Atua
             @Override
             public void onClick(View view) {
                 onStateNotSaved();
+                ID_GLOBAL = 0;
                 chamarInputDilog();
 
 
@@ -69,12 +63,18 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Atua
             @Override
             public void onListClick(int id) {
                 if (DepositoViewHolder.point == 1) {
+
+                    ID_GLOBAL = id;
                     chamarInputDilog();
+
                 }
             }
 
             @Override
             public void onDeleteClick(int id) {
+
+                repositorio.deletar(id);
+                onResume();
 
             }
         };
