@@ -71,13 +71,15 @@ public class DepositoRepositorio {
     public boolean alterar(Deposito deposito) {
         try {
             SQLiteDatabase db = MainDB.getInstancia().getWritableDatabase();
+
             ContentValues cv = new ContentValues();
+
+
             cv.put(DepositoConstantes.VALOR, deposito.getValor());
             cv.put(DepositoConstantes.DT_DEPOSITO, deposito.getDt_deposito());
 
-            String selection = DepositoConstantes.ID + " =?";
-            String[] sectionArgs = {String.valueOf(deposito.getId())};
-            db.update(MainDB.TABELA, cv, selection, sectionArgs);
+            String where = " ID = '" + deposito.getId() + "'";
+            db.update(MainDB.TABELA, cv, where, null);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

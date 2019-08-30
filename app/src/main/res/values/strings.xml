@@ -11,4 +11,9 @@
     <string name="remocao_titulo">Remoção de Valor</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
+    <string name="campo_obrigatorio">Campo Obrigatório</string>
+    <string name="sucesso_cadastrar">Deposito Cadastrado</string>
+    <string name="erro_cadastrar">Erro ao Cadastrar</string>
+    <string name="sucesso_alterado">Deposito Alterado</string>
+    <string name="erro_alterar">Erro ao Alterar</string>
 </resources>

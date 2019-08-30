@@ -35,7 +35,6 @@ public class CustomDialog extends DialogFragment {
         viewHolder.edtData = view.findViewById(R.id.data_valor_id);
         viewHolder.txt_ok = view.findViewById(R.id.ok_id);
         viewHolder.txt_cancelar = view.findViewById(R.id.cancel_id);
-        final Deposito deposito = new Deposito();
         repositorio = new DepositoRepositorio();
         Calendar c = Calendar.getInstance();
 
@@ -49,11 +48,8 @@ public class CustomDialog extends DialogFragment {
         viewHolder.txt_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deposito.setValor(Double.parseDouble(viewHolder.edtValor.getText().toString()));
-                deposito.setDt_deposito(viewHolder.edtData.getText().toString());
-                repositorio.cadastrar(deposito);
-                atualiza.atualizar(viewHolder.edtValor.getText().toString());
-                getDialog().dismiss();
+                cadastrarDeposito();
+
             }
         });
 
@@ -90,7 +86,7 @@ public class CustomDialog extends DialogFragment {
 
     }
 
-    public void carregarDados() {
+    private void carregarDados() {
 
 
         if (MainActivity.ID_GLOBAL != 0) {
@@ -98,6 +94,53 @@ public class CustomDialog extends DialogFragment {
             viewHolder.edtValor.setText(String.valueOf(deposito.getValor()));
             viewHolder.edtData.setText(deposito.getDt_deposito());
 
+
+        }
+    }
+
+    private boolean validarCampos() {
+        if (viewHolder.edtValor.getText().toString().trim().isEmpty()) {
+            viewHolder.edtValor.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        } else if (viewHolder.edtData.getText().toString().trim().isEmpty()) {
+            viewHolder.edtValor.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        }
+        return true;
+    }
+
+    private void cadastrarDeposito() {
+        if (!validarCampos()) {
+            return;
+        } else {
+            Deposito deposito = new Deposito();
+            deposito.setValor(Double.parseDouble(viewHolder.edtValor.getText().toString()));
+            deposito.setDt_deposito(viewHolder.edtData.getText().toString());
+            if (MainActivity.ID_GLOBAL == 0) {
+
+                if (repositorio.cadastrar(deposito)) {
+                    Toast.makeText(getContext(), R.string.sucesso_cadastrar, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), R.string.erro_cadastrar, Toast.LENGTH_SHORT).show();
+                }
+
+                repositorio.cadastrar(deposito);
+                atualiza.atualizar(viewHolder.edtValor.getText().toString());
+                getDialog().dismiss();
+
+            } else {
+                deposito.setId(MainActivity.ID_GLOBAL);
+                if (repositorio.alterar(deposito)) {
+
+                    atualiza.atualizar(viewHolder.edtValor.getText().toString());
+                    getDialog().dismiss();
+                    Toast.makeText(getContext(), R.string.sucesso_alterado, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), R.string.erro_alterar, Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
 
         }
     }
