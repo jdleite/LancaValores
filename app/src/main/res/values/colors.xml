@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="floatButton">#ffffff</color>
+    <color name="corvalor">#2196F3</color>
+    <color name="corData">#673AB7</color>
+    <color name="corBackground">#8D986CA5</color>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:clickable="true"
     android:orientation="vertical">
 
@@ -12,12 +12,18 @@
 
         <TextView
             android:id="@+id/valor_id"
+            android:textColor="@color/corvalor"
+            android:background="@color/corBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:textSize="50px"/>
 
         <TextView
             android:id="@+id/dt_valor_id"
+            android:textColor="@color/corData"
+            android:background="@color/corBackground"
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="250dp"

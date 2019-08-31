@@ -25,7 +25,7 @@
             android:layout_below="@id/heading"
             android:layout_marginTop="20dp"
             android:background="@null"
-            android:textColor="#000"
+            android:textColor="@color/corvalor"
             android:hint="@string/entre_com_o_valor"
             android:id="@+id/edt_valor_id"/>
         <EditText
@@ -34,8 +34,7 @@
             android:layout_below="@id/edt_valor_id"
             android:layout_marginTop="20dp"
             android:background="@null"
-            android:text="aaaa"
-            android:textColor="#000"
+            android:textColor="@color/corData"
             android:id="@+id/data_valor_id"/>
 
 

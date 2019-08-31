@@ -124,7 +124,6 @@ public class CustomDialog extends DialogFragment {
                     Toast.makeText(getContext(), R.string.erro_cadastrar, Toast.LENGTH_SHORT).show();
                 }
 
-                repositorio.cadastrar(deposito);
                 atualiza.atualizar(viewHolder.edtValor.getText().toString());
                 getDialog().dismiss();
 
