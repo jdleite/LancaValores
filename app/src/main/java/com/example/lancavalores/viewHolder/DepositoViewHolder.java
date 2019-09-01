@@ -15,9 +15,11 @@ import com.example.lancavalores.listener.DepositoInterface;
 
 import java.text.NumberFormat;
 
+//A viewHolder para listar o valor e a data no list da activity principal
+
 public class DepositoViewHolder extends RecyclerView.ViewHolder {
 
-    TextView txtValor, txtDta;
+    private TextView txtValor, txtDta;
     private Context mContext;
     public static int point;
 
@@ -40,7 +42,6 @@ public class DepositoViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View view) {
                 point = 1;
                 listener.onListClick(deposito.getId());
-
 
 
             }

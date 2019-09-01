@@ -3,8 +3,8 @@ package com.example.lancavalores.banco;
 import android.database.sqlite.SQLiteDatabase;
 
 public class CreateDatabase {
-
-    public boolean  criar() {
+    //Cria o banco
+    public boolean criar() {
         try {
             SQLiteDatabase db = MainDB.getInstancia().getWritableDatabase();
             String colunas = "(ID INTEGER PRIMARY KEY AUTOINCREMENT,VALOR REAL,DT_DEPOSITO VARCHAR)";
@@ -19,12 +19,13 @@ public class CreateDatabase {
 
     }
 
-    public void excluir(){
+    //Exclui o banco
+    public void excluir() {
         try {
             SQLiteDatabase db = MainDB.getInstancia().getWritableDatabase();
             String query = "DROP TABLE IF EXISTS " + MainDB.TABELA;
             db.execSQL(query);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

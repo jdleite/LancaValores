@@ -23,6 +23,8 @@ public class DepositoRepositorio {
             db.insert(MainDB.TABELA, null, cv);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            MainDB.getInstancia().close();
         }
 
         return true;
@@ -49,6 +51,8 @@ public class DepositoRepositorio {
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            MainDB.getInstancia().close();
         }
         return depositos;
 
@@ -64,6 +68,8 @@ public class DepositoRepositorio {
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            MainDB.getInstancia().close();
         }
         return false;
     }
@@ -83,6 +89,8 @@ public class DepositoRepositorio {
             return true;
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            MainDB.getInstancia().close();
         }
         return false;
 
@@ -108,6 +116,8 @@ public class DepositoRepositorio {
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            MainDB.getInstancia().close();
         }
         return deposito;
 

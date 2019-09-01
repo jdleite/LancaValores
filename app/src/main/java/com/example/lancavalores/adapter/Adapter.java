@@ -15,6 +15,7 @@ import com.example.lancavalores.viewHolder.DepositoViewHolder;
 
 import java.util.List;
 
+//O adapter para fazer o list na activity principal pegando os campos da viewHolder
 public class Adapter extends RecyclerView.Adapter<DepositoViewHolder> {
 
     private List<Deposito> mDepositos;
@@ -36,7 +37,7 @@ public class Adapter extends RecyclerView.Adapter<DepositoViewHolder> {
 
         View view = inflater.inflate(R.layout.depositro_row, parent, false);
 
-        return new DepositoViewHolder(view,context);
+        return new DepositoViewHolder(view, context);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class Adapter extends RecyclerView.Adapter<DepositoViewHolder> {
 
         Deposito deposito = mDepositos.get(position);
 
-        holder.bindData(deposito,listener);
+        holder.bindData(deposito, listener);
 
 
     }

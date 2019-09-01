@@ -2,63 +2,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/inputBackground"
     android:gravity="center"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:padding="10dp">
+        android:layout_height="200dp">
 
         <TextView
+            android:id="@+id/heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/digite_o_valor"
+            android:gravity="center"
+            android:text="@string/deposito"
+            android:textColor="@color/corBtn"
             android:textSize="18sp"
-            android:layout_marginLeft="80dp"
-            android:textColor="#000"
-            android:id="@+id/heading"/>
+            android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/edt_valor_id"
+            style="@style/edtValor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/heading"
-            android:layout_marginTop="20dp"
-            android:background="@null"
-            android:textColor="@color/corvalor"
-            android:hint="@string/entre_com_o_valor"
-            android:id="@+id/edt_valor_id"/>
+            android:hint="@string/digite_o_valor" />
+
         <EditText
+            android:id="@+id/data_valor_id"
+            style="@style/edtData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_valor_id"
-            android:layout_marginTop="20dp"
-            android:background="@null"
-            android:textColor="@color/corData"
-            android:id="@+id/data_valor_id"/>
+            android:inputType="date" />
 
 
         <TextView
+            android:id="@+id/ok_id"
+            style="@style/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:textSize="18sp"
-            android:textColor="#33bbff"
-            android:id="@+id/ok_id"/>
+            android:text="@string/ok_"
+            android:textColor="@color/corBtn" />
 
         <TextView
+            android:id="@+id/cancel_id"
+            style="@style/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancelar"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginRight="20dp"
-            android:textSize="18sp"
-            android:textColor="#33bbff"
-            android:id="@+id/cancel_id"/>
+            android:text="@string/cancelar"
+            android:textColor="@color/corBtn" />
 
     </RelativeLayout>
 

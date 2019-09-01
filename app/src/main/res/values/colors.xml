@@ -5,6 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="floatButton">#ffffff</color>
     <color name="corvalor">#2196F3</color>
-    <color name="corData">#673AB7</color>
-    <color name="corBackground">#8D986CA5</color>
+    <color name="corData">#F3558D</color>
+    <color name="corBtn">#2196F3</color>
+    <color name="inputBackground">#39517B</color>
+    <color name="corBackground">#BABAD0</color>
 </resources>

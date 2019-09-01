@@ -1,19 +1,15 @@
 package com.example.lancavalores.entidade;
 
+//Entidade
 public class Deposito {
     private int id;
     private double valor;
     private String dt_deposito;
 
-    public Deposito(){
+    public Deposito() {
 
     }
 
-    public Deposito(int id, double valor, String dt_deposito) {
-        this.id = id;
-        this.valor = valor;
-        this.dt_deposito = dt_deposito;
-    }
 
     public int getId() {
         return id;
